@@ -93,9 +93,9 @@
      Scrivi una funzione per aggiungere al titolo della pagina una classe "myHeading"
   */
 
-    const titleClass = document.querySelector("title")
     const addClassToTitle = function (classTitle) {
-      titleClass.classList.add(classTitle);
+      const title_Class = document.querySelector("title")
+      title_Class.classList.add(classTitle);
     };
     console.log(addClassToTitle("Class_Title"));
 
@@ -182,29 +182,117 @@
     */
 
     const revealFooterLink = function () {
+      const footer = document.querySelector("footer");
       const select = document.querySelector("footer a[href]");
+      footer.style.cursor = 'pointer';
       alert(select);
     };
     // console.log(revealFooterLink());
 
     /* ESERCIZIO 11
      Crea una funzione che crei una tabella nell'elemento con id "tableArea". 
-     La tabella avrà 5 elementi e questa struttura: immagine, nome prodotto, quantità, prezzo
+     La tabella avrà 4 elementi e questa struttura: immagine, nome prodotto, quantità, prezzo
   */
+    const generateTable = function () {
+      const container = document.getElementById("tableArea");
+      container.style.textAlign = "center";
 
-    const generateTable = function () { }
+      // const topTable = document.createElement("caption");
+      // topTable.innerText = "Nostri Prodotti";
+      // container.appendChild(topTable);
+
+      const table = document.createElement("table");
+      table.style.width = "80%";
+      table.style.border = "1px solid";
+      table.style.margin = "auto";
+
+      container.appendChild(table);
+
+
+      const firstRow = document.createElement("tr");
+      table.appendChild(firstRow);
+
+      const thImage = document.createElement("th");
+      thImage.innerText = "Immagine";
+      firstRow.appendChild(thImage);
+
+      const thProduct = document.createElement("th");
+      thProduct.innerText = "Nome Prodotto";
+      firstRow.appendChild(thProduct);
+
+      const thQuantity = document.createElement("th");
+      thQuantity.innerText = "Quantita'";
+      firstRow.appendChild(thQuantity);
+
+      const thPrice = document.createElement("th");
+      thPrice.innerText = "Prezzo";
+      firstRow.appendChild(thPrice);
+
+    };
+    generateTable();
 
     /* ESERCIZIO 12
      Crea una funzione che aggiunga una riga alla tabella precedentemente creata e fornisca i dati necessari come parametri
   */
 
-    const addRow = function () { }
+    const addRow = function (myImg, product, quantity, price) {
+      const table = document.querySelector("table");
+      const newRow = document.createElement("tr");
+      table.appendChild(newRow);
 
+      const thImage = document.createElement("td");
+      thImage.innerHTML = `<img src=${myImg} alt="square" height="100"/>`;
+      newRow.appendChild(thImage);
+
+      const tdProduct = document.createElement("td");
+      tdProduct.innerText = product;
+      newRow.appendChild(tdProduct);
+
+      const tdQuantity = document.createElement("td");
+      tdQuantity.innerText = quantity;
+      newRow.appendChild(tdQuantity);
+
+      const tdPrice = document.createElement("td");
+      tdPrice.innerText = price;
+      newRow.appendChild(tdPrice);
+    };
+
+    addRow(
+      "https://img.freepik.com/premium-vector/black-square-center-checkerboard-pattern-border-bold-monochrome-layout-geometric-minimalistic-style_797523-5748.jpg?semt=ais_hybrid&w=740&q=80",
+      "Qualcosa",
+      "23",
+      "34$"
+    );
+    addRow(
+      "https://img.freepik.com/premium-vector/black-square-center-checkerboard-pattern-border-bold-monochrome-layout-geometric-minimalistic-style_797523-5748.jpg?semt=ais_hybrid&w=740&q=80",
+      "Qualcosa",
+      "23",
+      "34$"
+    );
+    addRow(
+      "https://img.freepik.com/premium-vector/black-square-center-checkerboard-pattern-border-bold-monochrome-layout-geometric-minimalistic-style_797523-5748.jpg?semt=ais_hybrid&w=740&q=80",
+      "Qualcosa",
+      "23",
+      "34$"
+    );
+    addRow(
+      "https://img.freepik.com/premium-vector/black-square-center-checkerboard-pattern-border-bold-monochrome-layout-geometric-minimalistic-style_797523-5748.jpg?semt=ais_hybrid&w=740&q=80",
+      "Qualcosa",
+      "23",
+      "34$"
+    );
     /* ESERCIZIO 14
     Crea una funzione che nasconda le immagini della tabella quando eseguita
   */
 
-    const hideAllImages = function () { }
+    const hideAllImages = function () {
+      const myImages = document.querySelectorAll("table img");
+      myImages.forEach(img => {
+        img.style.display = "none";
+      });
+    };
+
+    // hideAllImages();
 
     /* EXTRA ESERCIZIO 15
     Crea una funzione che cambi il colore del h2 con id "changeMyColor" con un colore random ad ogni click ricevuto
@@ -215,7 +303,7 @@
 
     const changeColorWithRandom = function () {
       const h2 = document.querySelector(".changeMyColor");
-      h2.style.color = "#" + (Math.floor(Math.random()*1000000).toString());
+      h2.style.color = "#" + (Math.floor(Math.random() * 1000000).toString());
     };
   </script>
 </body>
