@@ -203,18 +203,20 @@
 
       const table = document.createElement("table");
       table.style.width = "80%";
-      table.style.border = "1px solid";
+      table.style.border = "1px solid rgb(187, 187, 187)";
+      // table.style.bordercollapsse = "collapse";
       table.style.margin = "auto";
-
       container.appendChild(table);
 
 
       const firstRow = document.createElement("tr");
       table.appendChild(firstRow);
+      firstRow.style.backgroundColor = "rgb(187, 187, 187)";
 
       const thImage = document.createElement("th");
       thImage.innerText = "Immagine";
       firstRow.appendChild(thImage);
+
 
       const thProduct = document.createElement("th");
       thProduct.innerText = "Nome Prodotto";
@@ -305,6 +307,13 @@
       const h2 = document.querySelector(".changeMyColor");
       h2.style.color = "#" + (Math.floor(Math.random() * 1000000).toString());
     };
+
+// const addElement = function() {
+    const myInputBody = document.querySelector("body");
+    const myInput = document.createElement("input");
+    myInputBody.appendChild(myInput);
+// };
+// addElement();
   </script>
 </body>
 
